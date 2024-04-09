@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
-    <div className=" font-serif bg-gradient-to-b from-black py-2 px-6 absolute w-full text-amber-400  flex justify-between items-center font-extrabold">
+    <div className=" font-serif fixed z-10 bg-gradient-to-b from-black py-2 px-6  w-full text-amber-400  flex justify-between items-center font-extrabold">
       <div className="flex items-center">
         <img src={logo} alt="logo" className="size-12"></img>
         <h1 className="text-2xl font-extrabold">BK STORE</h1>
