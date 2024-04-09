@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import background from "../assets/background.jpg";
 import BookCard from "./BookCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [bookData, setBookData] = useState(null);
@@ -25,22 +26,26 @@ const Body = () => {
   };
 
   return (
-    <div>
-      <form className=" absolute top-[14%] p-2 w-[40%] mx-auto right-0 left-0 text-center bg-gradient-to-t from-amber-500 to-amber-300 rounded-md "   onSubmit={(e) => {
+    <div className=" w-full  bg-gradient-to-t from-gray-950 to-gray-800 flex flex-col justify-between gap-12 p-20">
+      <form
+        className=" font-serif p-2 w-[40%] mx-auto right-0 left-0 text-center bg-gradient-to-t from-amber-500 to-amber-300 rounded-md "
+        onSubmit={(e) => {
           e.preventDefault();
-        }}>
+        }}
+      >
         <input
           type="text"
           placeholder="Search book name.."
-          className="rounded-l-md p-2 w-[78%] bg-black text-amber-400"
+          className="rounded-l-md p-2 w-[78%] bg-black text-amber-500 font-medium"
         ></input>
         <button
           type="submit"
-          className="bg-black font-medium hover:bg-gray-950 text-amber-400 p-2 rounded-r-md w-[20%] ml-2"
+          className="bg-black font-medium hover:bg-gray-900 text-amber-500 p-2 rounded-r-md w-[20%] ml-2"
         >
           Search
         </button>
       </form>
+
       {/* <div className="fixed -z-20">
         <img
           src={background}
@@ -48,7 +53,12 @@ const Body = () => {
           className="h-screen w-screen object-cover"
         ></img>
       </div> */}
-      <div className=" px-28 pt-[14%] bg-gradient-to-t from-gray-950 to-gray-800  flex justify-evenly items-center flex-wrap gap-6 ">
+
+      <div className=" flex justify-evenly items-center flex-wrap gap-6 ">
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
         <BookCard />
         <BookCard />
         <BookCard />
@@ -59,6 +69,8 @@ const Body = () => {
         <BookCard />
         <BookCard />
       </div>
+
+      {/* <Shimmer /> */}
     </div>
   );
 };

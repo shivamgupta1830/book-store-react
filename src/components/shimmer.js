@@ -1,7 +1,34 @@
 import React from "react";
 
-const shimmer = () => {
-  return <div>shimmer</div>;
+const Shimmer = () => {
+  return (
+    <div className="flex justify-center items-center gap-12 flex-wrap">
+      <div className="w-[250px] h-[350px] p-2 bg-slate-500 flex flex-col gap-2 items-center rounded-md">
+        <div className="w-full h-[250px] bg-gray-700 "></div>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-1/2 h-[30px]"></p>
+      </div>
+      <div className="w-[250px] h-[350px] p-2 bg-slate-500 flex flex-col gap-2 items-center rounded-md">
+        <div className="w-full h-[250px] bg-gray-700"></div>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-1/2 h-[30px]"></p>
+      </div>
+      <div className="w-[250px] h-[350px] p-2 bg-slate-500 flex flex-col gap-2 items-center rounded-md">
+        <div className="w-full h-[250px] bg-gray-700"></div>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-1/2 h-[30px]"></p>
+      </div>
+      <div className="w-[250px] h-[350px] p-2 bg-slate-500 flex flex-col gap-2 items-center rounded-md">
+        <div className="w-full h-[250px] bg-gray-700"></div>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-full h-[25px]"></p>
+        <p className="bg-slate-700 w-1/2 h-[30px]"></p>
+      </div>
+    </div>
+  );
 };
 
-export default shimmer;
+export default Shimmer;
