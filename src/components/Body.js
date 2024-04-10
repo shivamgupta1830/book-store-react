@@ -11,7 +11,7 @@ const Body = () => {
   useEffect(() => {
     const setDebouncing = setTimeout(() => {
       fetchList(query);
-    }, 2000);
+    }, 500);
 
     return () => clearTimeout(setDebouncing);
   }, [query]);
@@ -19,7 +19,7 @@ const Body = () => {
   const fetchList = async (query = "react") => {
     try {
       const data = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
       );
 
       const response = await data.json();
@@ -62,15 +62,13 @@ const Body = () => {
           </button>
         </form>
 
-        <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-6 px-10 pt-12 pb-[31%] ">
+        <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-4 px-6 pt-12 ">
           {bookData ? (
             bookData.map((data) => <BookCard data={data} key={data.id} />)
           ) : (
             <Shimmer />
           )}
         </div>
-
-        {/* <Shimmer /> */}
       </div>
     </div>
   );

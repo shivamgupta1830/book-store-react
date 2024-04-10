@@ -56,14 +56,14 @@ const BookDetails = () => {
           </h6>
           <h6 className="text-gray-700 font-bold text-md">Description</h6>
           <p className="text-black font-medium text-md">
-            {description.slice(3, 500) + "..."}
+            {description.slice(0, 500) + "..."}
             <span>
               <a
                 href={link}
                 target="_blank"
                 className="text-amber-900 font-bold hover:underline"
               >
-                read more on google books
+                read more on Google books
               </a>
             </span>
           </p>
