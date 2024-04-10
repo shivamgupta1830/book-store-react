@@ -2,21 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BookCard = ({ data }) => {
-  const { id, volumeInfo, authors, selfLinks } = data;
+  const { id, volumeInfo } = data;
+
   if (!data) return;
 
-  const title = volumeInfo?.title ? volumeInfo?.title : "Unkown";
-  const author = volumeInfo?.authors[0] ? volumeInfo?.authors[0] : "Unkown";
-  const image = volumeInfo?.imageLinks?.thumnail
-    ? volumeInfo?.imageLinks?.thumnail
-    : volumeInfo?.imageLinks?.smallThumbnail;
+  const title = volumeInfo?.title ? volumeInfo?.title : "Title Unkown";
+  const author = volumeInfo?.authors[0]
+    ? volumeInfo?.authors[0]
+    : "Author Unkown";
 
-  console.log(data);
+  const image = volumeInfo?.imageLinks?.thumbnail
+    ? volumeInfo?.imageLinks?.thumbnail
+    : volumeInfo?.imageLinks?.smallThumbnail;
 
   return (
     <div>
       {data && (
-        <div className=" flex flex-col justify-between items-center  font-serif w-[275px] h-[435px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500   border border-amber-900 transition-all">
+        <div className=" flex flex-col justify-between items-center  font-serif w-[275px] min-h-[425px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500   border border-amber-900 transition-all">
           <img
             src={image}
             alt="book-cover"

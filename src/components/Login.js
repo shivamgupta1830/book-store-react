@@ -53,7 +53,7 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-3 my-3 w-full bg-green-950 rounded-md text-lg "
+            className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg "
           />
         )}
 
@@ -67,13 +67,13 @@ const Login = () => {
           ref={email}
           type="email"
           placeholder="Email Address"
-          className="p-3 my-3 w-full bg-green-950 rounded-md text-lg placeholder:text-gray-400"
+          className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg placeholder:text-gray-400"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-3 my-3 w-full bg-green-950 rounded-md text-lg  placeholder:text-gray-400"
+          className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg  placeholder:text-gray-400"
         />
         <p className="w-full text-sm text-gray-400 text-center">
           Password must have atleast 6 characters including a uppercase,
