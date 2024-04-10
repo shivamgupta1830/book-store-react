@@ -2,7 +2,7 @@ import React from "react";
 
 const BookDetails = () => {
   return (
-    <div className=" h-full  bg-gradient-to-t from-gray-950 to-gray-800 p-32">
+    <div className=" w-full h-full bg-gradient-to-t from-gray-950 to-gray-800 p-32">
       <div className="  w-[90%] m-auto r-0 l-0 flex  justify-between items-start bg-gradient-to-t from-amber-500 to-amber-300 p-2 rounded-md  shadow-3xl shadow-amber-500 border border-amber-900">
         <img
           src="https://books.google.com/books/publisher/content?id=jUvZDQAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73JfemYXmNF3Znnmr7ymwCXEa_5Q4IpMzPANMxSX6VojhkmudzwZoIAXHvXwtEUQ5Ne1HoSQEI0OlNgTDVZS6QzQItbv5X36vV-GvGDwLzUo5O8lTvRdrrC8ieu6qA9VK3b-kAm&source=gbs_api"
