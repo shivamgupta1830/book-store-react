@@ -37,7 +37,7 @@ const Body = () => {
     <div className="w-full h-full bg-gradient-to-t from-gray-950 to-gray-800">
       <div className="flex-col justify-between gap-12 p-20">
         <form
-          className=" font-serif p-2 w-[50%] mx-auto right-0 left-0 text-center bg-gradient-to-t from-amber-500 to-amber-300 rounded-md "
+          className=" font-serif p-1 w-[50%] mx-auto right-0 left-0 text-center bg-gradient-to-t from-amber-500 to-amber-300 rounded-md "
           onSubmit={(e) => {
             e.preventDefault();
           }}
@@ -62,7 +62,7 @@ const Body = () => {
           </button>
         </form>
 
-        <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-4 px-6 pt-12 ">
+        <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-4 px-6 pt-9 ">
           {bookData ? (
             bookData.map((data) => <BookCard data={data} key={data.id} />)
           ) : (

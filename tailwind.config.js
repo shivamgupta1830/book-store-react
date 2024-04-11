@@ -7,7 +7,7 @@ module.exports = {
         poppins: ["IBM Plex Serif", "serif"],
       },
       boxShadow: {
-        "3xl": "0px 0px 10px 1px rgba(255, 191, 0, 0.1)",
+        "3xl": "0px 0px 10px 0px rgba(255, 191, 0, 0.1)",
       },
     },
   },

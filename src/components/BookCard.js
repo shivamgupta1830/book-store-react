@@ -8,9 +8,10 @@ const BookCard = ({ data }) => {
 
   const title = volumeInfo?.title ? volumeInfo?.title : "Title Unkown";
 
-  const author = volumeInfo?.authors[0]
-    ? volumeInfo?.authors[0]
-    : "Author Unkown";
+  // const author = volumeInfo?.authors[0]
+  //   ? volumeInfo?.authors[0]
+  //   : "Author Unkown";
+  const author = "Author unkown";
 
   const image = volumeInfo?.imageLinks?.thumbnail
     ? volumeInfo?.imageLinks?.thumbnail

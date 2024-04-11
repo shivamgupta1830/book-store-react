@@ -4,12 +4,20 @@ import Login from "./components/Login";
 import BookDetails from "./components/BookDetails";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Error from "./components/Error";
+import Cart from "./components/Cart";
+
+import { Provider } from "react-redux";
+
+import appStore from "./utils/appStore";
 
 function App() {
   return (
     <div>
-      <Header />
-      <Outlet />
+      <Provider store={appStore}>
+        <Header />
+
+        <Outlet />
+      </Provider>
     </div>
   );
 }
@@ -34,10 +42,10 @@ const appRouter = createBrowserRouter([
         path: "/book/:id",
         element: <BookDetails />,
       },
-      // {
-      //   path: "/cart",
-      //   element: <Cart />,
-      // },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
     errorElement: <Error />,
   },
