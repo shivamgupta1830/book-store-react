@@ -40,7 +40,7 @@ const Login = () => {
         ></img>
       </div>
 
-      <form className=" font-serif rounded-md p-8 bg-black bg-opacity-80 text-amber-500 absolute w-[30%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center">
+      <form className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute w-[30%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center">
         <p className=" text-amber-500 text-base font-bold text-center mb-3">
           Please Sign in/Sign up to access the cart !
         </p>
