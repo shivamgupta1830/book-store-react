@@ -9,13 +9,13 @@ import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 
 import appStore from "./utils/appStore";
+import Checkout from "./components/Checkout";
 
 function App() {
   return (
     <div>
       <Provider store={appStore}>
         <Header />
-
         <Outlet />
       </Provider>
     </div>
@@ -45,6 +45,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
     errorElement: <Error />,

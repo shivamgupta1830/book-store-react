@@ -4,9 +4,9 @@ import BookCard from "./BookCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [bookData, setBookData] = useState();
-
   const [query, setQuery] = useState();
+
+  const [bookData, setBookData] = useState();
 
   useEffect(() => {
     const setDebouncing = setTimeout(() => {
@@ -44,7 +44,7 @@ const Body = () => {
         >
           <input
             type="text"
-            placeholder="Search book name such as React.."
+            placeholder="Search book title such as React.."
             className="rounded-l-md p-2 w-[78%] bg-black text-amber-500 font-normal text-base"
             onChange={(e) => {
               setQuery(e.target.value);
@@ -52,7 +52,7 @@ const Body = () => {
             gradient-to-t
             from-gray-950
             to-gray-800
-          ></input>
+          />
           <button
             type="submit"
             className="bg-black text-base font-normal hover:bg-gray-900 active:scale-105 text-amber-500 p-2 rounded-r-md w-[20%] ml-2"

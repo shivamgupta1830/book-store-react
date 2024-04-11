@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import CartItemCard from "./CartItemCard";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const items = useSelector((store) => store.cart.items);
@@ -21,7 +22,7 @@ const Cart = () => {
           <div className="w-full flex flex-col justify-start items-start gap-2">
             <div className=" w-full flex justify-between">
               <p className="text-2xl text-amber-500 font-semibold ">
-                Your Cart 🛒
+                Your cart 🛒
               </p>
               <button
                 className="bg-red-700 font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-red-600  transition-all"
@@ -40,9 +41,11 @@ const Cart = () => {
               <h5 className="text-lg  text-amber-500  font-bold">
                 Total Price: <span className="text-white">₹ 9999</span>
               </h5>
-              <button className="bg-green-700 font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-green-600 transition-all">
-                Checkout
-              </button>
+              <Link to="/checkout">
+                <button className="bg-green-700 font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-green-600 transition-all">
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         ) : (

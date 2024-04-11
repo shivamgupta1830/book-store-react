@@ -75,7 +75,7 @@ const BookDetails = () => {
                     href={link}
                     target="_blank"
                     rel="noopener"
-                    className="bg-amber-800 font-medium underline underline-offset-2 p-1 text-white rounded-md hover:bg-amber-700 transition-all"
+                    className=" font-bold hover:underline hover:underline-offset-2 p-1 text-amber-950 rounded-md transition-all"
                   >
                     know more on google books.
                   </Link>

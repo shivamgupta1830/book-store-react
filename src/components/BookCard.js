@@ -34,7 +34,7 @@ const BookCard = ({ data }) => {
           </p>
 
           <Link to={`/book/${id}`}>
-            <button className="bg-black w-full text-amber-500 font-normal py-2 px-4 mt-1  text-sm rounded-md hover:bg-gray-900 hover:scale-105 transition-all">
+            <button className="bg-black w-full text-amber-500 font-normal py-2 px-4 mt-1  text-sm rounded-md hover:shadow-3xl hover:shadow-gray-800 transition-all">
               Details
             </button>
           </Link>
