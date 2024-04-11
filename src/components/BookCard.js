@@ -20,7 +20,7 @@ const BookCard = ({ data }) => {
   return (
     <div>
       {data && (
-        <div className=" flex flex-col justify-start gap-3  items-center  font-serif w-[250px] h-[450px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500   border border-amber-900 transition-all">
+        <div className=" flex flex-col justify-start gap-3  items-center  font-serif w-[250px] h-[450px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500 transition-all">
           <img
             src={image}
             alt="book-cover"

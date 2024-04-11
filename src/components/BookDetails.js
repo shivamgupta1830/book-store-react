@@ -20,7 +20,7 @@ const BookDetails = () => {
       );
 
       const response = await data.json();
-      console.log(response);
+
       setBookData(response);
     } catch (error) {
       console.log(error);
