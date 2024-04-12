@@ -58,7 +58,7 @@ const BookDetails = () => {
     <div className=" w-full h-screen  p-32 bg-gradient-to-t from-gray-950 to-gray-800">
       {bookData ? (
         <div>
-          <div className="  w-[auto] m-auto r-0 l-0 flex  justify-start items-start bg-gradient-to-t from-amber-500 to-amber-300 p-2 rounded-md  shadow-3xl shadow-amber-500 border border-amber-900">
+          <div className="  w-[auto] m-auto r-0 l-0 flex  justify-start items-start bg-gradient-to-t from-amber-500 to-amber-300 p-2 rounded-md  hover:shadow-3xl hover:shadow-amber-400">
             <img src={image} alt="book" className="size-96"></img>
             <div className="font-serif text-white h-full flex flex-col justify-between items-start px-4 gap-2">
               <h4 className="text-black font-extrabold text-2xl">{title}</h4>

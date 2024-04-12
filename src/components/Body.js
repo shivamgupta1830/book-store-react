@@ -45,7 +45,7 @@ const Body = () => {
           <input
             type="text"
             placeholder="Search book title such as React.."
-            className="rounded-l-md p-2 w-[78%] bg-black text-amber-500 font-normal text-base"
+            className="rounded-l-md p-2 w-full bg-black text-amber-500 font-normal text-base"
             onChange={(e) => {
               setQuery(e.target.value);
             }}
@@ -53,13 +53,13 @@ const Body = () => {
             from-gray-950
             to-gray-800
           />
-          <button
+          {/* <button
             type="submit"
             className="bg-black text-base font-normal hover:bg-gray-900 active:scale-105 text-amber-500 p-2 rounded-r-md w-[20%] ml-2"
             onClick={fetchList}
           >
             Search
-          </button>
+          </button> */}
         </form>
 
         <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-4 px-6 pt-9 ">

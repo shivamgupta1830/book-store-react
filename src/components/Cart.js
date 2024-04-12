@@ -6,8 +6,6 @@ import CartItemCard from "./CartItemCard";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import Body from "./Body";
 
 const Cart = () => {
   const items = useSelector((store) => store.cart.items);
@@ -62,7 +60,16 @@ const Cart = () => {
           )}
         </div>
       ) : (
-        <Body />
+        <div className="bg-gradient-to-t from-gray-950 to-gray-800 font-bold  flex flex-col items-center justify-start gap-6 text-xl w-full h-screen pt-32">
+          <h1 className="text-amber-500 ">
+            Please Sign in/Sign up to access the cart !
+          </h1>
+          <Link to="/login">
+            <button className="bg-amber-500 text-black py-1 px-2 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg">
+              Login
+            </button>
+          </Link>
+        </div>
       )}
     </div>
   );
