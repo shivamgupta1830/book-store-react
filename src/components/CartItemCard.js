@@ -27,6 +27,7 @@ const CartItemCard = ({ item }) => {
           </div>
         </div>
         <div className="flex justify-start items-center gap-6">
+          <p>Quantity: 1</p>
           <select className="w-[20%] p-1 rounded-md bg-transparent border border-black">
             <option value="1">1</option>
             <option value="1">2</option>

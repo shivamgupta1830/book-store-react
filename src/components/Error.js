@@ -12,10 +12,8 @@ const Error = () => {
       <div className="pt-40">
         {" "}
         <h1 className="text-3xl text-center p-2">OOPS !!!</h1>
-        <h1 className="text-3xl text-center">Something went wrong !</h1>
-        <h3 className="text-xl text-center p-2 font-medium">
-          {error.status}: {error.statusText}
-        </h3>
+        <h1 className="text-2xl text-center p-2">Something went wrong !</h1>
+        <h1 className="text-2xl text-center p-2">Please try again later...</h1>
       </div>
     </div>
   );

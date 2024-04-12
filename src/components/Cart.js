@@ -21,8 +21,8 @@ const Cart = () => {
         {items.length !== 0 ? (
           <div className="w-full flex flex-col justify-start items-start gap-2">
             <div className=" w-full flex justify-between">
-              <p className="text-2xl text-amber-500 font-semibold ">
-                Your cart 🛒
+              <p className="text-xl text-amber-500 font-semibold ">
+                Total items <span className="text-white">(1)</span>
               </p>
               <button
                 className="bg-red-700 font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-red-600  transition-all"

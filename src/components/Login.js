@@ -8,7 +8,7 @@ import {
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
-  const [errorMsg, setErrorMsg] = useState();
+  const [errorMsg, setErrorMsg] = useState(null);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -23,10 +23,71 @@ const Login = () => {
   };
 
   const hadleBtnClick = () => {
+    //for sign in
+
     const validateSignInMsg = validateSignInFormData(
       email.current.value,
       password.current.value
     );
+
+    if (isSignIn) {
+      setErrorMsg(validateSignInMsg);
+      if (validateSignInMsg) return;
+
+      if (validateSignInMsg === null) {
+        // signInWithEmailAndPassword(
+        //   auth,
+        //   email.current.value,
+        //   password.current.value
+        // )
+        //   .then((userCredential) => {
+        //     // const user = userCredential.user;
+        //     // Signed in
+        //   })
+        //   .catch((error) => {
+        //     const errorCode = error.code;
+        //     // const errorMessage = error.message;
+        //     setErrorMsg(errorCode);
+        //   });
+      }
+      return;
+    }
+
+    // for SIGN UP
+    const validateSignUpMsg = validateSignUpFormData(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
+
+    if (!isSignIn) {
+      setErrorMsg(validateSignUpMsg);
+
+      if (validateSignUpMsg) return;
+
+      if (validateSignInMsg === null) {
+        //Sign up logic
+        // createUserWithEmailAndPassword(
+        //   auth,
+        //   email.current.value,
+        //   password.current.value
+        // )
+        //   .then((userCredential) => {
+        //     // const user = userCredential.user;
+        //     // Signed up
+        //     name.current.value = null;
+        //     email.current.value = null;
+        //     password.current.value = null;
+        //   })
+        //   .catch((error) => {
+        //     const errorCode = error.code;
+        //     // const errorMessage = error.message;
+        //     setErrorMsg(errorCode);
+        //   });
+      }
+
+      return;
+    }
   };
 
   return (
@@ -40,11 +101,16 @@ const Login = () => {
         ></img>
       </div>
 
-      <form className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute w-[30%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center">
+      <form
+        className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute w-[30%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <p className=" text-amber-500 text-base font-bold text-center mb-3">
           Please Sign in/Sign up to access the cart !
         </p>
-        <h2 className="text-3xl font-bold text-white">
+        <h2 className="text-2xl font-bold text-white">
           {!isSignIn ? "Sign Up" : "Sign In"}
         </h2>
 
@@ -53,34 +119,31 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg "
+            className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg "
           />
         )}
-
-        {/* <input
-          type="text"
-          placeholder="Full Name"
-          className="p-3 my-3 w-full bg-green-950 rounded-md text-lg "
-        /> */}
 
         <input
           ref={email}
           type="email"
           placeholder="Email Address"
-          className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg placeholder:text-gray-400"
+          className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg placeholder:text-gray-400"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-3 my-3 w-full bg-gray-900 rounded-md text-lg  placeholder:text-gray-400"
+          className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg  placeholder:text-gray-400"
         />
         <p className="w-full text-sm text-gray-400 text-center">
           Password must have atleast 6 characters including a uppercase,
           lowercase, numeric & special character
         </p>
+        <p className="font-semibold text-amber-500 text-base p-2 mt-1">
+          {errorMsg}
+        </p>
         <button
-          className="bg-amber-500 w-full text-black font-semibold p-3 mt-4 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg"
+          className="bg-amber-500 w-full text-black font-semibold p-2 mt-3 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg"
           onClick={hadleBtnClick}
         >
           Login

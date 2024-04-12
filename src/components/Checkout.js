@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const [name, setName] = useState("Your name");
-  const [contact, setContact] = useState("+91 999999999");
-  const [address, setAddress] = useState(
-    "House no 123, Street no 123, Colony xyz, City abcd , Pin - 222222"
-  );
+  const [name, setName] = useState("Your Name");
+  const [contact, setContact] = useState("+91 XXXXXXXXX");
+  const [address, setAddress] = useState("Your residential address");
 
   return (
     <div className=" font-serif flex  justify-center items-center gap-10  w-screen h-screen p-16 bg-gradient-to-t from-gray-950 to-gray-800">
@@ -53,9 +52,16 @@ const Checkout = () => {
         <h2 className="font-bold text-lg">
           Total Price: <span className="text-green-900">₹ 9999</span>
         </h2>
-        <button className="text-base bg-green-800 p-2 mt-2 text-white rounded-md hover:shadow-3xl hover:shadow-green-700 hover:underline hover:underline-offset-4 transition-all">
-          Proceed for payment
-        </button>
+        <div className="flex items-center justify-between mt-6 gap-5">
+          <Link to="/cart">
+            <button className="bg-red-800  text-white p-2 rounded-md hover:shadow-3xl hover:shadow-red-700  transition-all">
+              Back to cart
+            </button>
+          </Link>
+          <button className="text-base bg-green-800 p-2  text-white rounded-md hover:shadow-3xl hover:shadow-green-700 hover:underline hover:underline-offset-4 transition-all">
+            Proceed for payment
+          </button>
+        </div>
       </div>
     </div>
   );

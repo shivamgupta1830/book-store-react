@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className=" font-serif fixed z-10 bg-black py-2 px-6  w-full text-amber-500  flex justify-between items-center font-extrabold">
-      <div className="flex items-center">
-        <img src={logo} alt="logo" className="size-12"></img>
-        <h1 className="text-2xl font-normal">BK STORE</h1>
-      </div>
+      <Link to="/home">
+        <div className="flex items-center">
+          <img src={logo} alt="logo" className="size-12"></img>
+          <h1 className="text-2xl font-normal">BK STORE</h1>
+        </div>
+      </Link>
 
       <div>
         <ul className="flex justify-between items-center gap-8 font-normal text-base">

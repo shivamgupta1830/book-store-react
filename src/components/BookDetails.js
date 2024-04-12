@@ -87,7 +87,7 @@ const BookDetails = () => {
               <div className="flex justify-between items-center gap-5 mt-2">
                 <Link to="">
                   <button
-                    className="bg-black font-semibold text-amber-500 p-3 rounded-md hover:shadow-3xl hover:shadow-gray-800 transition-all"
+                    className="bg-black font-medium text-amber-500 p-3 rounded-md hover:shadow-3xl hover:shadow-gray-800 transition-all"
                     onClick={addCartItems}
                   >
                     Add to cart 🛒
@@ -95,7 +95,7 @@ const BookDetails = () => {
                 </Link>
 
                 <Link to="/home">
-                  <button className="bg-red-800 font-semibold text-white p-3 rounded-md hover:shadow-3xl hover:shadow-red-700  transition-all">
+                  <button className="bg-red-800 font-medium text-white p-3 rounded-md hover:shadow-3xl hover:shadow-red-700  transition-all">
                     Back to Home
                   </button>
                 </Link>
