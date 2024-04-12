@@ -5,6 +5,11 @@ import {
   validateSignInFormData,
   validateSignUpFormData,
 } from "../utils/validateForm";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -35,20 +40,21 @@ const Login = () => {
       if (validateSignInMsg) return;
 
       if (validateSignInMsg === null) {
-        // signInWithEmailAndPassword(
-        //   auth,
-        //   email.current.value,
-        //   password.current.value
-        // )
-        //   .then((userCredential) => {
-        //     // const user = userCredential.user;
-        //     // Signed in
-        //   })
-        //   .catch((error) => {
-        //     const errorCode = error.code;
-        //     // const errorMessage = error.message;
-        //     setErrorMsg(errorCode);
-        //   });
+        signInWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            setErrorMsg(`${errorCode} : Please provide valid credentials !`);
+          });
       }
       return;
     }
@@ -66,24 +72,22 @@ const Login = () => {
       if (validateSignUpMsg) return;
 
       if (validateSignInMsg === null) {
-        //Sign up logic
-        // createUserWithEmailAndPassword(
-        //   auth,
-        //   email.current.value,
-        //   password.current.value
-        // )
-        //   .then((userCredential) => {
-        //     // const user = userCredential.user;
-        //     // Signed up
-        //     name.current.value = null;
-        //     email.current.value = null;
-        //     password.current.value = null;
-        //   })
-        //   .catch((error) => {
-        //     const errorCode = error.code;
-        //     // const errorMessage = error.message;
-        //     setErrorMsg(errorCode);
-        //   });
+        createUserWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            setErrorMsg(`${errorCode} : Please provide valid credentials !`);
+            // ..
+          });
       }
 
       return;
@@ -119,7 +123,7 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg "
+            className="p-2 my-3 w-full bg-gray-900 rounded-md text-base "
           />
         )}
 
@@ -127,26 +131,26 @@ const Login = () => {
           ref={email}
           type="email"
           placeholder="Email Address"
-          className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg placeholder:text-gray-400"
+          className="p-2 my-3 w-full bg-gray-900 rounded-md text-base placeholder:text-gray-400"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 my-3 w-full bg-gray-900 rounded-md text-lg  placeholder:text-gray-400"
+          className="p-2 my-3 w-full bg-gray-900 rounded-md text-base  placeholder:text-gray-400"
         />
         <p className="w-full text-sm text-gray-400 text-center">
           Password must have atleast 6 characters including a uppercase,
           lowercase, numeric & special character
         </p>
-        <p className="font-semibold text-amber-500 text-base p-2 mt-1">
+        <p className="font-normal text-amber-500 text-base p-2 mt-1">
           {errorMsg}
         </p>
         <button
           className="bg-amber-500 w-full text-black font-semibold p-2 mt-3 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg"
           onClick={hadleBtnClick}
         >
-          Login
+          {!isSignIn ? "Sign Up" : "Sign In"}
         </button>
         <p className="text-white px-2 py-2 my-2 ">
           {!isSignIn ? "Already registerd?" : "Not registerd?"}
