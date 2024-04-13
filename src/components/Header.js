@@ -51,7 +51,7 @@ const Header = () => {
       </Link>
 
       <div>
-        <ul className="flex justify-between items-center gap-8 font-normal text-base">
+        <ul className="flex justify-between items-center gap-8 font-normal text-lg">
           <Link to="/home">
             <li className=" hover:underline underline-offset-4">Home</li>
           </Link>
