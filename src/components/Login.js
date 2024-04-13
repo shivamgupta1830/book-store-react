@@ -106,15 +106,15 @@ const Login = () => {
       </div>
 
       <form
-        className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute w-[30%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center"
+        className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute md:w-[30%] sm:w-[90%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
         }}
       >
-        <p className=" text-amber-500 text-base font-bold text-center mb-3">
+        <p className=" text-amber-500 text-base md:font-bold sm:font-normal text-center mb-3">
           Please Sign in/Sign up to access the cart !
         </p>
-        <h2 className="text-2xl font-bold text-white">
+        <h2 className="md:text-2xl sm:text-xl md:font-bold sm:font-normal text-white">
           {!isSignIn ? "Sign Up" : "Sign In"}
         </h2>
 
@@ -147,7 +147,7 @@ const Login = () => {
           {errorMsg}
         </p>
         <button
-          className="bg-amber-500 w-full text-black font-semibold p-2 mt-3 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg"
+          className="bg-amber-500 w-full text-black md:font-semibold  sm:font-bold p-2 mt-3 rounded-md hover:shadow-3xl hover:shadow-amber-500 text-lg"
           onClick={hadleBtnClick}
         >
           {!isSignIn ? "Sign Up" : "Sign In"}

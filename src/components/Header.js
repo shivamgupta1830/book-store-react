@@ -42,29 +42,31 @@ const Header = () => {
     });
   };
   return (
-    <div className=" font-serif fixed z-10 bg-black py-2 px-6  w-full text-amber-500  flex justify-between items-center font-extrabold">
+    <div className=" font-serif fixed z-10 bg-black py-2 px-6 w-full text-amber-500  flex md:flex-row sm:flex-col justify-between items-center ">
       <Link to="/home">
         <div className="flex items-center">
-          <img src={logo} alt="logo" className="size-12"></img>
-          <h1 className="text-2xl font-normal">BK STORE</h1>
+          <img src={logo} alt="logo" className="md:size-12  sm:size-6"></img>
+          <h1 className="md:text-2xl sm:text-base font-bold  ">BK STORE</h1>
         </div>
       </Link>
 
       <div>
-        <ul className="flex justify-between items-center gap-8 font-normal text-lg">
+        <ul className="flex justify-between items-center md:gap-8  sm:gap-6  md:font-normal sm:font-semibold md:text-lg sm:text-xs">
           <Link to="/home">
             <li className=" hover:underline underline-offset-4">Home</li>
           </Link>
 
           {user && (
             <Link to="/cart">
-              <li className="  hover:underline underline-offset-4">🛒Cart </li>
+              <li className="  hover:underline underline-offset-4">
+                <span className="md:inline sm:hidden">🛒</span>Cart
+              </li>
             </Link>
           )}
 
           <Link to="/login">
             <button
-              className="bg-amber-500 text-black py-1 px-2 rounded-md hover:shadow-3xl hover:shadow-amber-500"
+              className="bg-amber-500 text-black py-1 px-2  rounded-md hover:shadow-3xl hover:shadow-amber-500 underline-offset-4 "
               onClick={handleSignout}
             >
               {user ? "Logout" : "Login"}

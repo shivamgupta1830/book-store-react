@@ -34,18 +34,18 @@ const Body = () => {
   };
 
   return (
-    <div className="w-full h-full bg-gradient-to-t from-gray-950 to-gray-800">
-      <div className="flex-col justify-between gap-12 p-24">
+    <div className="w-[100%] h-full bg-gradient-to-t from-gray-950 to-gray-800">
+      <div className="flex-col justify-between  items-center gap-12 md:p-24 sm:p-16 ">
         <form
-          className=" font-serif p-1 w-[50%] mx-auto right-0 left-0 text-center bg-gradient-to-t from-amber-500 to-amber-300 rounded-md "
+          className=" font-serif p-1 md:w-[50%] sm:w-[100%] mx-auto right-0 left-0  bg-gradient-to-t from-amber-500 to-amber-300 rounded-md sm:mt-8 md:mt-0"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
           <input
             type="text"
-            placeholder="Search book title such as React.."
-            className="rounded-l-md p-2 w-full bg-black text-amber-500 font-normal text-base"
+            placeholder="Search title.. "
+            className="rounded-l-md p-2 w-full bg-black text-amber-500 font-normal md:text-base sm:text-sm"
             onChange={(e) => {
               setQuery(e.target.value);
             }}
@@ -53,16 +53,9 @@ const Body = () => {
             from-gray-950
             to-gray-800
           />
-          {/* <button
-            type="submit"
-            className="bg-black text-base font-normal hover:bg-gray-900 active:scale-105 text-amber-500 p-2 rounded-r-md w-[20%] ml-2"
-            onClick={fetchList}
-          >
-            Search
-          </button> */}
         </form>
 
-        <div className=" w-full h-full flex justify-evenly items-center flex-wrap gap-4 px-6 pt-9 ">
+        <div className=" w-full h-full flex justify-center items-center flex-wrap md:gap-4 sm:gap-6 px-6 pt-9 ">
           {bookData ? (
             bookData.map((data) => <BookCard data={data} key={data.id} />)
           ) : (

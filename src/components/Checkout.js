@@ -12,7 +12,7 @@ const Checkout = () => {
   return (
     <div>
       {user ? (
-        <div className=" font-serif flex  justify-center items-center gap-10  w-screen h-screen p-16 bg-gradient-to-t from-gray-950 to-gray-800">
+        <div className=" font-serif flex md:flex-row sm:flex-col justify-center items-center gap-10  w-screen h-screen p-16 bg-gradient-to-t from-gray-950 to-gray-800">
           <form
             className=" w-[50%] h-[60%] mx-auto r-0 l-0 flex flex-col justify-start items-start gap-3 bg-gradient-to-t from-amber-500 to-amber-300 p-4 rounded-md hover:shadow-3xl hover:shadow-amber-500"
             onSubmit={(e) => {
