@@ -23,23 +23,25 @@ const CartItemCard = ({ item }) => {
             className="object-contain md:size-20 sm:size-14"
           ></img>
           <div className="flex flex-col justify-start items-start">
-            <p className="md:text-xl sm:text-xs font-bold">{title}</p>
-            <p className="md:text-base sm:text-xs font-bold text-gray-700">
+            <p className="lg:text-xl md:text-lg sm:text-xs font-bold">
+              {title}
+            </p>
+            <p className="lg:text-lg md:text-sm sm:text-xs font-bold text-gray-700">
               Price: <span className="text-amber-900">₹</span>
               <span className="text-amber-900">{Math.round(price)}</span>
             </p>
           </div>
         </div>
-        <div className="flex justify-start items-center gap-6 md:text-base sm:text-xs ">
+        <div className="flex justify-start items-center gap-6 lg:text-base md:text-sm sm:text-xs ">
           <p>Q: 1</p>
-          <select className="sm:w-[25%] md:w-[20%] p-1 rounded-md bg-transparent border border-black md:text-base sm:text-xs">
+          <select className="sm:w-[25%] md:w-[20%] p-1 rounded-md bg-transparent border border-black lg:text-base md:text-sm sm:text-xs">
             <option value="1">1</option>
             <option value="1">2</option>
             <option value="1">3</option>
             <option value="1">4 (max)</option>
           </select>
           <button
-            className="bg-transparent md:text-base sm:text-xs py-1 px-2 rounded-md hover:shadow-3xl hover:shadow-gray-800 border border-black hover:bg-black hover:text-amber-500 transition-all"
+            className="bg-transparent lg:text-base md:text-sm sm:text-xs py-1 px-2 rounded-md hover:shadow-3xl hover:shadow-gray-800 border border-black hover:bg-black hover:text-amber-500 transition-all"
             onClick={deleteItem}
           >
             Delete

@@ -24,11 +24,11 @@ const Cart = () => {
           {items.length !== 0 ? (
             <div className="w-full flex flex-col justify-start items-start gap-2">
               <div className=" w-full flex justify-between gap-2 ">
-                <p className="md:text-xl sm:text-sm text-amber-500 font-semibold ">
+                <p className="lg:text-xl md:text-lg sm:text-sm text-amber-500 font-semibold ">
                   Total items <span className="text-white">(1)</span>
                 </p>
                 <button
-                  className="bg-red-700 md:text-lg sm:text-xs font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-red-600  transition-all"
+                  className="bg-red-700 lg:text-lg md:text-sm sm:text-xs font-normal text-white p-2 rounded-md hover:shadow-3xl hover:shadow-red-600  transition-all"
                   onClick={cartClear}
                 >
                   Clear 🛒
@@ -43,11 +43,11 @@ const Cart = () => {
               </div>
 
               <div className=" w-full flex justify-between gap-2 items-center">
-                <h5 className="md:text-xl sm:text-sm text-amber-500  font-semibold">
+                <h5 className="lg:text-xl md:text-lg sm:text-sm text-amber-500  font-semibold">
                   Total Price: <span className="text-white">₹ 9999</span>
                 </h5>
                 <Link to="/checkout">
-                  <button className="bg-green-700 font-normal md:text-lg sm:text-xs text-white p-2 rounded-md hover:shadow-3xl hover:shadow-green-600 transition-all">
+                  <button className="bg-green-700 font-normal lg:text-lg md:text-sm sm:text-xs text-white p-2 rounded-md hover:shadow-3xl hover:shadow-green-600 transition-all">
                     Checkout
                   </button>
                 </Link>

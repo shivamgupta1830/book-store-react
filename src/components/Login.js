@@ -106,7 +106,7 @@ const Login = () => {
       </div>
 
       <form
-        className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute md:w-[30%] sm:w-[90%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center"
+        className=" font-serif rounded-md p-8 mt-6 bg-black bg-opacity-80 text-amber-500 absolute lg:w-[35%] md:w-[60%] sm:w-[75%] top-20 text-center mx-auto right-0 left-0 flex flex-col  justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
         }}

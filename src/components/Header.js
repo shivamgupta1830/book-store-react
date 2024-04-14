@@ -42,16 +42,22 @@ const Header = () => {
     });
   };
   return (
-    <div className=" font-serif fixed z-10 bg-black py-2 px-6 w-full text-amber-500  flex md:flex-row sm:flex-col justify-between items-center ">
+    <div className=" font-serif fixed z-10 bg-black sm:py-3 lg:py-2 px-6 w-full text-amber-500  flex md:flex-row sm:flex-col justify-between items-center sm:gap-2 md:gap-0">
       <Link to="/home">
         <div className="flex items-center">
-          <img src={logo} alt="logo" className="md:size-12  sm:size-6"></img>
-          <h1 className="md:text-2xl sm:text-base font-bold  ">BK STORE</h1>
+          <img
+            src={logo}
+            alt="logo"
+            className="lg:size-12  md:size-8 sm:size-6"
+          ></img>
+          <h1 className="lg:text-2xl md:text-xl sm:text-base font-bold  ">
+            BK STORE
+          </h1>
         </div>
       </Link>
 
       <div>
-        <ul className="flex justify-between items-center md:gap-8  sm:gap-6  md:font-normal sm:font-semibold md:text-lg sm:text-xs">
+        <ul className="flex justify-between items-center md:gap-8  sm:gap-6  md:font-normal sm:font-semibold lg:text-lg md:text-base sm:text-sm">
           <Link to="/home">
             <li className=" hover:underline underline-offset-4">Home</li>
           </Link>

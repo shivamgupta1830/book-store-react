@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Shimmer2 from "./Shimmer2";
+
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 
@@ -55,19 +55,29 @@ const BookDetails = () => {
   };
 
   return (
-    <div className=" w-full h-screen  p-32 bg-gradient-to-t from-gray-950 to-gray-800">
-      {bookData ? (
+    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32 lg:py-32  md:px-16 md:py-28 sm:px-10 sm:py-28 bg-gradient-to-t from-gray-950 to-gray-800">
+      {bookData && (
         <div>
-          <div className="  w-[auto] m-auto r-0 l-0 flex  justify-start items-start bg-gradient-to-t from-amber-500 to-amber-300 p-2 rounded-md  hover:shadow-3xl hover:shadow-amber-400">
-            <img src={image} alt="book" className="size-96"></img>
-            <div className="font-serif text-white h-full flex flex-col justify-between items-start px-4 gap-2">
-              <h4 className="text-black font-extrabold text-2xl">{title}</h4>
-              <h5 className="text-amber-900 font-bold text-xl">{author}</h5>
-              <h6 className="text-orange-800 font-bold text-md">
+          <div className="  lg:w-[auto] md:w-full sm:w-full m-auto r-0 l-0 flex md:flex-row sm:flex-col justify-start md:items-start sm:items-center bg-gradient-to-t from-amber-500 to-amber-300 p-2 rounded-md  hover:shadow-3xl hover:shadow-amber-400">
+            <img
+              src={image}
+              alt="book"
+              className="lg:size-96 md:size-48 sm:size-32 sm:mb-4 md:mb-0"
+            ></img>
+            <div className="font-serif text-white h-full flex flex-col justify-between md:items-start sm:items-center px-4 md:gap-2 sm:gap-0">
+              <h4 className="text-black font-extrabold sm:text-lg md:text-xl lg:text-2xl">
+                {title}
+              </h4>
+              <h5 className="text-amber-900 font-bold lg:text-xl md:text-lg sm:text-base">
+                {author}
+              </h5>
+              <h6 className="text-orange-800 font-bold md:text-base sm:text-sm">
                 Published: {date}
               </h6>
-              <h6 className="text-gray-700 font-bold text-md">Description</h6>
-              <p className="text-black font-medium text-md">
+              <h6 className="text-gray-700 font-bold md:text-base sm:text-sm md:mt-0 sm:mt-2">
+                Description
+              </h6>
+              <p className="text-black font-medium md:text-base sm:text-sm sm:text-center md:text-start">
                 {description.slice(0, 500) + "..."}
                 <span>
                   <Link
@@ -81,13 +91,13 @@ const BookDetails = () => {
                   </Link>
                 </span>
               </p>
-              <p className="text-black font-bold text-lg">
+              <p className="text-black font-bold md:text-lg sm:text-base md:mt-0 sm:mt-2">
                 Price:₹ {Math.round(price)}
               </p>
               <div className="flex justify-between items-center gap-5 mt-2">
                 <Link to="/cart">
                   <button
-                    className="bg-black font-medium text-amber-500 p-3 rounded-md hover:shadow-3xl hover:shadow-gray-800 transition-all"
+                    className="bg-black font-medium text-amber-500  md:p-3 sm:p-2 rounded-md hover:shadow-3xl hover:shadow-gray-800 transition-all sm:text-sm md:text-base sm:mb-4"
                     onClick={addCartItems}
                   >
                     Add to cart 🛒
@@ -95,7 +105,7 @@ const BookDetails = () => {
                 </Link>
 
                 <Link to="/home">
-                  <button className="bg-red-800 font-medium text-white p-3 rounded-md hover:shadow-3xl hover:shadow-red-700  transition-all">
+                  <button className="bg-red-800 font-medium text-white md:p-3 sm:p-2 rounded-md hover:shadow-3xl hover:shadow-red-700  transition-all  sm:text-sm md:text-base sm:mb-4">
                     Back to Home
                   </button>
                 </Link>
@@ -103,8 +113,6 @@ const BookDetails = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <Shimmer2 />
       )}
     </div>
   );
