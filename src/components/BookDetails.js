@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
+import book_fallback from "../assets/book_fallback.jpeg";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -39,7 +40,10 @@ const BookDetails = () => {
   //   ? volumeInfo?.authors[0]
   //   : "Author Unkown";
 
-  const author = "Unkown";
+  const author =
+    volumeInfo?.authors && volumeInfo?.authors?.length > 0
+      ? volumeInfo?.authors[0].slice(0, 25)
+      : "Author Unkown";
 
   const description = volumeInfo?.description
     ? volumeInfo?.description
@@ -47,7 +51,7 @@ const BookDetails = () => {
 
   const image = volumeInfo?.imageLinks?.thumbnail
     ? volumeInfo?.imageLinks?.thumbnail
-    : volumeInfo?.imageLinks?.smallThumbnail;
+    : book_fallback;
   const link = volumeInfo?.previewLink ? volumeInfo?.previewLink : "#";
 
   const addCartItems = () => {

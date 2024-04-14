@@ -42,7 +42,7 @@ const Header = () => {
     });
   };
   return (
-    <div className=" font-serif fixed z-10 bg-black sm:py-3 lg:py-2 px-6 w-full text-amber-500  flex md:flex-row sm:flex-col justify-between items-center sm:gap-2 md:gap-0">
+    <div className=" font-serif fixed z-10 bg-black sm:py-3 lg:py-2 px-6 w-full text-amber-500  flex md:flex-row sm:flex-col justify-between items-center sm:gap-2">
       <Link to="/home">
         <div className="flex items-center">
           <img

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import book_fallback from "../assets/book_fallback.jpeg";
 
 const BookCard = ({ data }) => {
   const { id, volumeInfo } = data;
@@ -8,19 +9,19 @@ const BookCard = ({ data }) => {
 
   const title = volumeInfo?.title ? volumeInfo?.title : "Title Unkown";
 
-  // const author = volumeInfo?.authors[0]
-  //   ? volumeInfo?.authors[0]
-  //   : "Author Unkown";
-  const author = "Author unkown";
+  const author =
+    volumeInfo?.authors && volumeInfo?.authors?.length > 0
+      ? volumeInfo?.authors[0].slice(0, 25)
+      : "Author Unkown";
 
   const image = volumeInfo?.imageLinks?.thumbnail
     ? volumeInfo?.imageLinks?.thumbnail
-    : volumeInfo?.imageLinks?.smallThumbnail;
+    : book_fallback;
 
   return (
     <div>
       {data && (
-        <div className=" flex flex-col justify-start gap-3  items-center  font-serif md:w-[250px] sm:w-[200px] md:h-[430px] sm:h-[380px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500 transition-all">
+        <div className=" flex flex-col justify-start gap-3  items-center  font-serif md:w-[250px] sm:w-[200px] md:h-[430px] sm:h-[380px] bg-gradient-to-t from-amber-500 to-amber-300 mb-12 px-1 pt-1 pb-4 rounded-md hover:shadow-3xl hover:shadow-amber-500 transition-all hover:scale-105">
           <img
             src={image}
             alt="book-cover"
