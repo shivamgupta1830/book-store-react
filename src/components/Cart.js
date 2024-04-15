@@ -22,6 +22,24 @@ const Cart = () => {
     return total;
   };
 
+  const getTotalCartValue = () => {
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
+
+  // const getTotal = () => {
+  //   let totalQuantity = 0;
+  //   let totalPrice = 0;
+  //   cart.forEach((item) => {
+  //     totalQuantity += item.quantity;
+  //     totalPrice += item.price * item.quantity;
+  //   });
+  //   return { totalPrice, totalQuantity };
+  // };
+
   const cartClear = () => {
     dispatch(clearCart());
   };
@@ -46,7 +64,7 @@ const Cart = () => {
                 </button>
               </div>
 
-              <div className=" md:w-[90%] sm:w-full rounded-md bg-gradient-to-t from-amber-500 to-amber-300  hover:shadow-3xl hover:shadow-amber-300  transition-all px-3 pt-3 pb-5">
+              <div className=" md:w-[90%] sm:w-full rounded-md bg-transparent  px-3 pt-3 pb-5">
                 {items &&
                   items.map((item) => (
                     <CartItemCard item={item} key={item.id} />
@@ -55,7 +73,8 @@ const Cart = () => {
 
               <div className=" w-full flex justify-between gap-2 items-center">
                 <h5 className="lg:text-xl md:text-lg sm:text-sm text-amber-500  font-semibold">
-                  Total Value: <span className="text-white">₹ 9999</span>
+                  Total Value:{" "}
+                  <span className="text-white">{getTotalCartValue()}</span>
                 </h5>
                 <Link to="/checkout">
                   <button className="bg-green-700 font-normal lg:text-lg md:text-sm sm:text-xs text-white p-2 rounded-md hover:shadow-3xl hover:shadow-green-600 transition-all">

@@ -14,15 +14,17 @@ const Checkout = () => {
       {user ? (
         <div className=" font-serif flex lg:flex-row sm:flex-col justify-center items-center gap-10  w-screen sm:h-full lg:h-screen p-20  bg-gray-950 bg-gradient-to-t from-gray-950 to-gray-800">
           <form
-            className=" lg:w-[50%] md:w-[75%] sm:w-full h-[60%] mx-auto r-0 l-0 flex flex-col justify-start lg:items-start sm:items-center gap-3 bg-gradient-to-t from-amber-500 to-amber-300 p-4 rounded-md hover:shadow-3xl hover:shadow-amber-500  lg:mt-0 sm:mt-10 sm:text-xs md:text-base lg:text-lg"
+            className=" lg:w-[50%] md:w-[75%] sm:w-full h-[60%] mx-auto r-0 l-0 flex flex-col justify-start lg:items-start sm:items-center gap-3  p-4 rounded-md   lg:mt-0 sm:mt-10 sm:text-xs md:text-base lg:text-lg border border-amber-500"
             onSubmit={(e) => {
               e.preventDefault();
             }}
           >
-            <h3 className="font-bold ">Fill details for proceeding</h3>
+            <h3 className="font-bold text-amber-500 ">
+              Fill details for proceeding
+            </h3>
             <input
               type="text"
-              className="p-1 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%]"
+              className="py-1 px-2 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%]"
               placeholder="Enter full name"
               onChange={(e) => {
                 setName(e.currentTarget.value);
@@ -32,7 +34,7 @@ const Checkout = () => {
             <input
               type="tel"
               placeholder="Enter contact number"
-              className="p-1 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%]"
+              className="py-1 px-2 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%]"
               onChange={(e) => {
                 setContact(e.currentTarget.value);
               }}
@@ -40,7 +42,7 @@ const Checkout = () => {
             <textarea
               type="address"
               placeholder="Enter your address"
-              className="p-1 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%] h-[30%]"
+              className="py-1 px-2 rounded-md lg:w-[75%] md:w-[85%] sm:w-[90%] h-[30%]"
               onChange={(e) => {
                 setAddress(e.currentTarget.value);
               }}
@@ -48,17 +50,18 @@ const Checkout = () => {
           </form>
           <div className="lg:h-[70%] sm:h-[1px] sm: lg:w-[1px] sm:w-full bg-amber-500"></div>
 
-          <div className="lg:w-[50%] md:w-[75%] sm:w-full h-[60%] mx-auto r-0 l-0 flex flex-col justify-start lg:items-start sm:items-center gap-1 bg-gradient-to-t from-amber-500 to-amber-300 p-4 rounded-md hover:shadow-3xl hover:shadow-amber-500 sm:text-xs md:text-base lg:text-lg">
-            <h3 className="font-bold ">{name}</h3>
+          <div className="lg:w-[50%] md:w-[75%] sm:w-full h-[60%] mx-auto r-0 l-0 p-4 flex flex-col justify-start lg:items-start sm:items-center gap-1 border border-amber-500 rounded-md sm:text-xs md:text-base lg:text-lg">
+            <h3 className="font-semibold text-amber-500">{name}</h3>
+            <h3 className="font-medium  text-amber-500">{user.email}</h3>
 
-            <p>{contact}</p>
-            <p className="h-auto w-full sm:text-center lg:text-start  overflow-hidden">
+            <p className="text-slate-200">{contact}</p>
+            <p className="h-auto w-full sm:text-center lg:text-start  overflow-hidden text-slate-200">
               {" "}
               Address: {address}
             </p>
-            <h3 className="font-semibold">{user.email}</h3>
-            <h2 className="font-bold ">
-              Total Price: <span className="text-green-900">₹ 9999</span>
+
+            <h2 className="font-bold  text-slate-200 ">
+              Total Price: <span className="text-green-600">₹ 9999</span>
             </h2>
             <div className="flex items-center justify-between mt-6 gap-5">
               <Link to="/cart">
@@ -66,7 +69,7 @@ const Checkout = () => {
                   Back to cart
                 </button>
               </Link>
-              <button className="text-base bg-green-800 p-2  text-white rounded-md hover:shadow-3xl hover:shadow-green-700 hover:underline hover:underline-offset-4 transition-all sm:text-xs md:text-base lg:text-lg ">
+              <button className="text-base bg-green-700 p-2  text-white rounded-md hover:shadow-3xl hover:shadow-green-600 hover:underline hover:underline-offset-4 transition-all sm:text-xs md:text-base lg:text-lg ">
                 Proceed for payment
               </button>
             </div>

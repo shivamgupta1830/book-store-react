@@ -76,8 +76,9 @@ const Header = () => {
           {user && (
             <Link to="/cart">
               <li className="  hover:underline underline-offset-4">
-                <span className="md:inline sm:hidden">🛒</span>Cart
-                {` (${totalItemsInCart})`}
+                <span className="md:inline sm:hidden">🛒</span>
+                <span>Cart</span>
+                <span>{` (${totalItemsInCart})`}</span>
               </li>
             </Link>
           )}
