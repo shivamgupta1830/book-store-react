@@ -13,6 +13,17 @@ const Header = () => {
   const dispatch = useDispatch();
   //For get user and its details from store
   const user = useSelector((store) => store.user);
+  const cart = useSelector((store) => store.cart.cartItems);
+
+  const getTotalQuantity = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
+
+  const totalItemsInCart = getTotalQuantity() ? getTotalQuantity() : 0;
 
   const handleSignout = () => {
     signOut(auth)
@@ -37,7 +48,7 @@ const Header = () => {
       } else {
         // User is signed out
         dispatch(removeUser());
-        navigate("/");
+        navigate("/home");
       }
     });
   };
@@ -48,7 +59,7 @@ const Header = () => {
           <img
             src={logo}
             alt="logo"
-            className="lg:size-12  md:size-8 sm:size-6"
+            className="lg:size-12  md:size-8 sm:size-8"
           ></img>
           <h1 className="lg:text-2xl md:text-xl sm:text-base font-bold  ">
             BK STORE
@@ -66,6 +77,7 @@ const Header = () => {
             <Link to="/cart">
               <li className="  hover:underline underline-offset-4">
                 <span className="md:inline sm:hidden">🛒</span>Cart
+                {` (${totalItemsInCart})`}
               </li>
             </Link>
           )}

@@ -3,19 +3,21 @@ import Body from "./components/Body";
 import Login from "./components/Login";
 import BookDetails from "./components/BookDetails";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Error from "./components/Error";
+
 import Cart from "./components/Cart";
 
 import { Provider } from "react-redux";
 
 import appStore from "./utils/appStore";
 import Checkout from "./components/Checkout";
+import Error from "./components/Error";
 
 function App() {
   return (
     <div>
       <Provider store={appStore}>
         <Header />
+
         <Outlet />
       </Provider>
     </div>

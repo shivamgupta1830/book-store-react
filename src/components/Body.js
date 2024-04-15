@@ -34,7 +34,7 @@ const Body = () => {
   };
 
   return (
-    <div className="w-[100%] h-full bg-gradient-to-t from-gray-950 to-gray-800">
+    <div className="w-[100%] h-full  bg-gradient-to-t from-gray-950 to-gray-800">
       <div className="flex-col justify-between  items-center gap-12 md:p-24 sm:p-16 ">
         <form
           className=" font-serif p-1 md:w-[75%] lg:w-[50%] sm:w-[100%] mx-auto right-0 left-0  bg-gradient-to-t from-amber-500 to-amber-300 rounded-md sm:mt-8 md:mt-0"

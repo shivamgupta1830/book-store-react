@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import book_fallback from "../assets/book_fallback.jpeg";
 
 const BookDetails = () => {
   const { id } = useParams();
   const [bookData, setBookData] = useState();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const BookDetails = () => {
   };
 
   if (!bookData) return;
+
   const { volumeInfo, saleInfo } = bookData;
 
   const title = volumeInfo?.title ? volumeInfo?.title : "Title Unkown";
@@ -36,9 +38,6 @@ const BookDetails = () => {
     ? volumeInfo?.publishedDate
     : "Not available";
   const price = saleInfo?.listPrice?.amount ? saleInfo?.listPrice?.amount : 250;
-  // const author = volumeInfo?.authors[0]
-  //   ? volumeInfo?.authors[0]
-  //   : "Author Unkown";
 
   const author =
     volumeInfo?.authors && volumeInfo?.authors?.length > 0
