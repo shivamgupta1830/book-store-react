@@ -8,6 +8,18 @@ const Checkout = () => {
   const [contact, setContact] = useState("+91 XXXXXXXXX");
   const [address, setAddress] = useState("Your residential address");
   const user = useSelector((store) => store.user);
+  const cart = useSelector((store) => store.cart.cartItems);
+
+  const getTotalCartValue = () => {
+    let totalPrice = 0;
+
+    cart.forEach((item) => {
+      const itemPrice = item.saleInfo?.listPrice?.amount || 250;
+
+      totalPrice += Math.round(itemPrice) * item.quantity;
+    });
+    return totalPrice;
+  };
 
   return (
     <div>
@@ -61,7 +73,8 @@ const Checkout = () => {
             </p>
 
             <h2 className="font-bold  text-slate-200 ">
-              Total Price: <span className="text-green-600">₹ 9999</span>
+              Total Cart Value: ₹
+              <span className="text-green-600">{` ${getTotalCartValue()}`}</span>
             </h2>
             <div className="flex items-center justify-between mt-6 gap-5">
               <Link to="/cart">

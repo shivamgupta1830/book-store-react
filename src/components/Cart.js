@@ -24,21 +24,14 @@ const Cart = () => {
 
   const getTotalCartValue = () => {
     let totalPrice = 0;
+
     cart.forEach((item) => {
-      totalPrice += item.price * item.quantity;
+      const itemPrice = item.saleInfo?.listPrice?.amount || 250;
+
+      totalPrice += Math.round(itemPrice) * item.quantity;
     });
     return totalPrice;
   };
-
-  // const getTotal = () => {
-  //   let totalQuantity = 0;
-  //   let totalPrice = 0;
-  //   cart.forEach((item) => {
-  //     totalQuantity += item.quantity;
-  //     totalPrice += item.price * item.quantity;
-  //   });
-  //   return { totalPrice, totalQuantity };
-  // };
 
   const cartClear = () => {
     dispatch(clearCart());
@@ -73,7 +66,7 @@ const Cart = () => {
 
               <div className=" w-full flex justify-between gap-2 items-center">
                 <h5 className="lg:text-xl md:text-lg sm:text-sm text-amber-500  font-semibold">
-                  Total Value:{" "}
+                  Total Value: ₹{" "}
                   <span className="text-white">{getTotalCartValue()}</span>
                 </h5>
                 <Link to="/checkout">

@@ -1,41 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import BookCard from "./BookCard";
 import Shimmer from "./Shimmer";
+import useFetchBooksList from "../hooks/fetchBooksList";
+import { useSelector } from "react-redux";
 
 const Body = () => {
   const [query, setQuery] = useState();
+  // const [bookData, setBookData] = useState();
 
-  const [bookData, setBookData] = useState();
+  useFetchBooksList(query);
 
-  useEffect(() => {
-    const setDebouncing = setTimeout(() => {
-      fetchList(query);
-    }, 500);
+  const bookData = useSelector((store) => store.bookData.bookData);
+  console.log(bookData);
 
-    return () => clearTimeout(setDebouncing);
-  }, [query]);
+  // useEffect(() => {
+  //   const setDebouncing = setTimeout(() => {
+  //     fetchList(query);
+  //   }, 500);
 
-  const fetchList = async (query = "react") => {
-    try {
-      const data = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
-      );
+  //   return () => clearTimeout(setDebouncing);
+  // }, [query]);
 
-      const response = await data.json();
+  // const fetchList = async (query = "react") => {
+  //   try {
+  //     const data = await fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
+  //     );
 
-      if (query) {
-        const bookList = response.items;
-        setBookData(bookList);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     const response = await data.json();
+
+  //     if (query) {
+  //       const bookList = response.items;
+  //       setBookData(bookList);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className="w-[100%] h-full  bg-gradient-to-t from-gray-950 to-gray-800">
-      <div className="flex-col justify-between  items-center gap-12 md:p-24 sm:p- ">
+      <div className="flex-col justify-between  items-center gap-12 md:p-24 sm:p-20 ">
         <form
           className=" font-serif p-1 md:w-[75%] lg:w-[50%] sm:w-[100%] mx-auto right-0 left-0  bg-amber-500 rounded-md sm:mt-8 md:mt-0"
           onSubmit={(e) => {
