@@ -109,7 +109,7 @@ const BookDetails = () => {
                 Price:₹ {Math.round(price)}
               </p>
               <div className="flex justify-between items-center gap-5 mt-4">
-                <Link>
+                <Link to="/cart">
                   <button
                     className="bg-amber-500 font-medium text-black md:p-3 sm:p-2 rounded-md hover:shadow-3xl hover:shadow-amber-300 transition-all sm:text-sm md:text-base sm:mb-4 "
                     onClick={addCartItems}
