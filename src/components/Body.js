@@ -7,12 +7,10 @@ import { useSelector } from "react-redux";
 
 const Body = () => {
   const [query, setQuery] = useState();
-  // const [bookData, setBookData] = useState();
 
   useFetchBooksList(query);
 
   const bookData = useSelector((store) => store.bookData.bookData);
-  console.log(bookData);
 
   // useEffect(() => {
   //   const setDebouncing = setTimeout(() => {
