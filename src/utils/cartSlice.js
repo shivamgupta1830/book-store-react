@@ -33,12 +33,10 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      console.log("rem 1");
       const removeItem = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );
       state.cartItems = removeItem;
-      console.log("rem");
     },
     clearCart: (state, action) => {
       state.cartItems.length = 0;

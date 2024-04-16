@@ -12,7 +12,7 @@ const useFetchBooksList = (query) => {
     return () => clearTimeout(setDebouncing);
   }, [query]);
 
-  const fetchList = async (query = "react") => {
+  const fetchList = async (query) => {
     try {
       const data = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`

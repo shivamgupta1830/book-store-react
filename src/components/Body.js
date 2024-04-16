@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import BookCard from "./BookCard";
-import Shimmer from "./Shimmer";
 import useFetchBooksList from "../hooks/fetchBooksList";
 import { useSelector } from "react-redux";
+import FrontPage from "./FrontPage";
 
 const Body = () => {
   const [query, setQuery] = useState();
@@ -11,31 +11,6 @@ const Body = () => {
   useFetchBooksList(query);
 
   const bookData = useSelector((store) => store.bookData.bookData);
-
-  // useEffect(() => {
-  //   const setDebouncing = setTimeout(() => {
-  //     fetchList(query);
-  //   }, 500);
-
-  //   return () => clearTimeout(setDebouncing);
-  // }, [query]);
-
-  // const fetchList = async (query = "react") => {
-  //   try {
-  //     const data = await fetch(
-  //       `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
-  //     );
-
-  //     const response = await data.json();
-
-  //     if (query) {
-  //       const bookList = response.items;
-  //       setBookData(bookList);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <div className="w-[100%] h-full  bg-gradient-to-t from-gray-950 to-gray-800">
@@ -48,7 +23,7 @@ const Body = () => {
         >
           <input
             type="text"
-            placeholder="Search book title.. "
+            placeholder="Search..."
             className="rounded-l-md p-2 w-full bg-black  text-amber-500 font-normal md:text-base sm:text-sm"
             onChange={(e) => {
               setQuery(e.target.value);
@@ -63,7 +38,8 @@ const Body = () => {
           {bookData ? (
             bookData.map((data) => <BookCard data={data} key={data.id} />)
           ) : (
-            <Shimmer />
+            // <Shimmer />
+            <FrontPage />
           )}
         </div>
       </div>
