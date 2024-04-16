@@ -38,7 +38,6 @@ const Body = () => {
           {bookData ? (
             bookData.map((data) => <BookCard data={data} key={data.id} />)
           ) : (
-            // <Shimmer />
             <FrontPage />
           )}
         </div>

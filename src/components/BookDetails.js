@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import book_fallback from "../assets/book_fallback.jpeg";
+import AddWarning from "./AddWarning";
 
 const BookDetails = () => {
   const { id } = useParams();
   const [bookData, setBookData] = useState();
+  const [warning, setWarning] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -54,18 +56,27 @@ const BookDetails = () => {
   const link = volumeInfo?.previewLink ? volumeInfo?.previewLink : "#";
 
   const addCartItems = () => {
+    setWarning(true);
+    setTimeout(() => {
+      setWarning(false);
+    }, 1250);
     dispatch(addItem(bookData));
   };
 
   return (
-    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32 lg:py-32  md:px-16 md:py-28 sm:px-10 sm:py-28 bg-gradient-to-t from-gray-950 to-gray-800">
+    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32   md:px-16 py-36 sm:px-10 bg-gradient-to-t from-gray-950 to-gray-800 ">
       {bookData && (
-        <div>
-          <div className="  lg:w-[auto] md:w-full sm:w-full m-auto r-0 l-0 flex md:flex-row sm:flex-col justify-start md:items-start sm:items-center  p-2 gap-4  ">
+        <div className="relative">
+          {warning && (
+            <div className=" absolute top-1 right-1">
+              <AddWarning />
+            </div>
+          )}
+          <div className="  lg:w-[auto] md:w-full sm:w-full m-auto r-0 l-0 flex md:flex-row sm:flex-col justify-start md:items-start sm:items-center  p-2 gap-4 border border-amber-500  rounded-md">
             <img
               src={image}
               alt="book"
-              className="lg:size-96 md:size-48 sm:size-32 sm:mb-4 md:mb-0 rounded-md "
+              className="lg:size-96 md:size-48 sm:size-32 sm:mb-4 md:mb-0 rounded-sm "
             ></img>
             <div className="font-serif text-white h-full flex flex-col justify-between md:items-start sm:items-center px-4 md:gap-2 sm:gap-0">
               <h4 className="text-amber-500 font-extrabold sm:text-lg md:text-xl lg:text-2xl">
@@ -97,8 +108,8 @@ const BookDetails = () => {
               <p className="text-amber-500 font-bold md:text-lg sm:text-base md:mt-0 sm:mt-2">
                 Price:₹ {Math.round(price)}
               </p>
-              <div className="flex justify-between items-center gap-5 mt-2">
-                <Link to="/cart">
+              <div className="flex justify-between items-center gap-5 mt-4">
+                <Link>
                   <button
                     className="bg-amber-500 font-medium text-black md:p-3 sm:p-2 rounded-md hover:shadow-3xl hover:shadow-amber-300 transition-all sm:text-sm md:text-base sm:mb-4 "
                     onClick={addCartItems}

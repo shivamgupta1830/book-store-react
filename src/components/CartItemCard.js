@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import book_fallback from "../assets/book_fallback.jpeg";
 import { decreaseItem, increaseItem, removeItem } from "../utils/cartSlice";
 
 const CartItemCard = ({ item }) => {
   const dispatch = useDispatch();
-  const cart = useSelector((store) => store.cart.cartItems);
 
   const { volumeInfo, saleInfo, quantity } = item;
   const title = volumeInfo?.title ? volumeInfo?.title : "Title Unkown";
@@ -15,21 +14,14 @@ const CartItemCard = ({ item }) => {
     : book_fallback;
   const totalPrice = quantity * Math.round(price);
 
-  const getId = () => {
-    let id;
-    cart.forEach((item) => (id = item.id));
-
-    return id;
-  };
-
   return (
-    <div className="w-full border-b border-slate-600 py-2">
+    <div className="w-full border-b  border-amber-600 p-2 mb-2">
       <div className="flex md:flex-row sm:flex-col items-start justify-between px-1 py-2 gap-2">
-        <div className="font-serif flex justify-start items-start gap-3">
+        <div className="font-serif flex justify-start items-start gap-3 ">
           <img
             src={image}
             alt="cover"
-            className="object-cover md:size-20 sm:size-14  rounded-md"
+            className="object-cover md:size-20 sm:size-14  rounded-sm"
           ></img>
           <div className="flex flex-col justify-start items-start">
             <p className="lg:text-xl md:text-lg sm:text-xs font-medium text-amber-500">
@@ -48,7 +40,7 @@ const CartItemCard = ({ item }) => {
             <button
               className=" font-semibold lg:text-base md:text-sm sm:text-xs py-1 px-2 rounded-md  border border-amber-500  hover:bg-amber-500 hover:text-black transition-all"
               onClick={() => {
-                dispatch(decreaseItem(getId()));
+                dispatch(decreaseItem(item));
               }}
             >
               -
@@ -59,7 +51,7 @@ const CartItemCard = ({ item }) => {
             <button
               className=" font-semibold lg:text-base md:text-sm sm:text-xs py-1 px-2 rounded-md  border border-amber-500  hover:bg-amber-500 hover:text-black transition-all"
               onClick={() => {
-                dispatch(increaseItem(getId()));
+                dispatch(increaseItem(item));
               }}
             >
               +
@@ -67,7 +59,7 @@ const CartItemCard = ({ item }) => {
           </div>
           <button
             className=" lg:text-base md:text-sm sm:text-xs py-1 px-2 rounded-md  border border-amber-500  hover:bg-amber-500 hover:text-black transition-all"
-            onClick={() => dispatch(removeItem(getId()))}
+            onClick={() => dispatch(removeItem(item))}
           >
             Remove
           </button>

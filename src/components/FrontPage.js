@@ -10,7 +10,7 @@ const FrontPage = () => {
       <img
         src={front}
         alt="#"
-        className="lg:size-76 md:size-60 sm:size-40 -mt-12  animate-pulse"
+        className="lg:size-76 md:size-60 sm:size-40 -mt-12  animate-pulse hover:animate-none"
       ></img>
     </div>
   );

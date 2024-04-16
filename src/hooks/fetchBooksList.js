@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addBookData } from "../utils/bookDataSlice";
+import API_KEY from "../utils/constants";
 
 const useFetchBooksList = (query) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const useFetchBooksList = (query) => {
   const fetchList = async (query) => {
     try {
       const data = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=AIzaSyC176OCzs4gheSmWEdQovGrQgZnB0SstAI`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40&key=${API_KEY}`
       );
 
       const response = await data.json();
