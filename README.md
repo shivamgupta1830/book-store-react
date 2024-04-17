@@ -1,10 +1,11 @@
 ##React Bookstore Project
 
-Welcome to our React Bookstore project! This application is designed to provide users with a seamless experience in exploring, discovering, and purchasing books online. Whether you're an avid reader or just browsing, our bookstore offers a wide range of titles to cater to your interests.
+Welcome to my React Bookstore project! This application is designed to provide users with a seamless experience in exploring, discovering, and purchasing books online. Whether you're an avid reader or just browsing, our bookstore offers a wide range of titles to cater to your interests.
 
 ##Project Overview
 
-In this project, we've crafted an intuitive and feature-rich online bookstore using React. Here's what our application offers:
+In this project, we've crafted an intuitive and feature-rich online bookstore using React, Redux, Tailwind, Google Books API & Firebase Authentication.\ 
+Here's what our application offers:
 
 ##Book Discovery
 
@@ -50,7 +51,7 @@ In the project directory, you can run to :
 
 ### `npm install`
 
-It will install all dependencies required for the project.
+It will install all  dependencies required for the project.
 
 ### `npm start`
 
