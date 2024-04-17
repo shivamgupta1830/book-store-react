@@ -48,7 +48,7 @@ const BookDetails = () => {
 
   const description = volumeInfo?.description
     ? volumeInfo?.description
-    : "No description";
+    : "No description found";
 
   //regex to replace HTML tags in description
 
@@ -70,7 +70,7 @@ const BookDetails = () => {
   };
 
   return (
-    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32   md:px-16 pt-36 sm:px-10 pb-60 bg-gradient-to-t from-gray-950 to-gray-800 ">
+    <div className=" w-full h-full  lg:px-32   md:px-16 pt-36 sm:px-10 pb-60 bg-gradient-to-t from-gray-950 to-gray-800 ">
       {bookData && (
         <div className="relative">
           {/* {warning && (
