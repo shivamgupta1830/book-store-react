@@ -4,12 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import book_fallback from "../assets/book_fallback.jpeg";
-import AddWarning from "./AddWarning";
+// import AddWarning from "./AddWarning";
 
 const BookDetails = () => {
   const { id } = useParams();
   const [bookData, setBookData] = useState();
-  const [warning, setWarning] = useState(false);
+  // const [warning, setWarning] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -50,29 +50,35 @@ const BookDetails = () => {
     ? volumeInfo?.description
     : "No description";
 
+  //regex to replace HTML tags in description
+
+  const removeHtmlTags = (description) => {
+    return description.replace(/<[^>]*>/g, " ");
+  };
+
   const image = volumeInfo?.imageLinks?.thumbnail
     ? volumeInfo?.imageLinks?.thumbnail
     : book_fallback;
   const link = volumeInfo?.previewLink ? volumeInfo?.previewLink : "#";
 
   const addCartItems = () => {
-    setWarning(true);
-    setTimeout(() => {
-      setWarning(false);
-    }, 1250);
+    // setWarning(true);
+    // setTimeout(() => {
+    //   setWarning(false);
+    // }, 1250);
     dispatch(addItem(bookData));
   };
 
   return (
-    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32   md:px-16 py-36 sm:px-10 bg-gradient-to-t from-gray-950 to-gray-800 ">
+    <div className=" w-full md:h-full lg:h-screen sm:h-full lg:px-32   md:px-16 pt-36 sm:px-10 pb-60 bg-gradient-to-t from-gray-950 to-gray-800 ">
       {bookData && (
         <div className="relative">
-          {warning && (
+          {/* {warning && (
             <div className=" absolute top-1 right-1">
               <AddWarning />
             </div>
-          )}
-          <div className="  lg:w-[auto] md:w-full sm:w-full m-auto r-0 l-0 flex md:flex-row sm:flex-col justify-start md:items-start sm:items-center  p-2 gap-4 border border-amber-500  rounded-md">
+          )} */}
+          <div className="  lg:w-[auto] md:w-full sm:w-full m-auto r-0 l-0 flex md:flex-row sm:flex-col justify-start md:items-start sm:items-center  p-2  gap-4 border border-amber-500  rounded-md">
             <img
               src={image}
               alt="book"
@@ -92,7 +98,7 @@ const BookDetails = () => {
                 Description
               </h6>
               <p className="text-gray-200 font-medium md:text-base sm:text-sm sm:text-center md:text-start">
-                {description.slice(0, 500) + "..."}
+                {removeHtmlTags(description).slice(0, 500) + "..."}
                 <span>
                   <Link
                     to={link}

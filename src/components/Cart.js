@@ -41,7 +41,7 @@ const Cart = () => {
       <Header />
 
       {user ? (
-        <div className=" font-serif w-full h-full sm:px-16 lg:px-20 sm:pt-32 lg:pt-28 pb-96  bg-gray-950 bg-gradient-to-t from-gray-950 to-gray-800 flex flex-col justify-start items-start gap-7">
+        <div className=" font-serif w-full h-full sm:px-16 lg:px-20 sm:pt-32 lg:pt-28 pb-[110%]  bg-gray-950 bg-gradient-to-t from-gray-950 to-gray-800 flex flex-col justify-start items-start gap-7">
           {items.length !== 0 ? (
             <div className="w-full flex flex-col justify-start items-start gap-2">
               <div className=" w-full flex justify-between gap-2 ">
@@ -77,7 +77,7 @@ const Cart = () => {
               </div>
             </div>
           ) : (
-            <h1 className="text-amber-500 font-bold text-center lg:text-2xl sm:text-base md:text-xl w-full py-16">
+            <h1 className="h-screen text-amber-500 font-bold text-center lg:text-2xl sm:text-base md:text-xl w-full py-16">
               Your cart 🛒 is empty !!
             </h1>
           )}
