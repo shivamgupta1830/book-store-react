@@ -85,7 +85,7 @@ const BookDetails = () => {
               className="lg:size-96 md:size-48 sm:size-32 sm:mb-4 md:mb-0 rounded-sm "
             ></img>
             <div className="font-serif text-white h-full flex flex-col justify-between md:items-start sm:items-center px-4 md:gap-2 sm:gap-0">
-              <h4 className="text-amber-500 font-extrabold sm:text-lg md:text-xl lg:text-2xl">
+              <h4 className="text-amber-500 font-extrabold sm:text-lg md:text-xl lg:text-2xl lg:text-start md:text-start sm:text-center">
                 {title}
               </h4>
               <h5 className="text-red-600 font-bold lg:text-xl md:text-lg sm:text-base">

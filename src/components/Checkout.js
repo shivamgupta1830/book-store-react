@@ -24,7 +24,7 @@ const Checkout = () => {
   return (
     <div>
       {user ? (
-        <div className=" font-serif flex lg:flex-row sm:flex-col justify-center items-center gap-10  w-screen sm:h-full lg:h-screen p-20  bg-gray-950 bg-gradient-to-t from-gray-950 to-gray-800">
+        <div className=" font-serif flex lg:flex-row sm:flex-col justify-center items-center gap-10  w-screen sm:h-full lg:h-screen p-20 lg:pb-0 md:pb-10 sm:pb-16 bg-gray-950 bg-gradient-to-t from-gray-950 to-gray-800">
           <form
             className=" lg:w-[50%] md:w-[75%] sm:w-full h-[60%] mx-auto r-0 l-0 flex flex-col justify-start lg:items-start sm:items-center gap-3  p-4 rounded-md   lg:mt-0 sm:mt-10 sm:text-xs md:text-base lg:text-lg border border-amber-500"
             onSubmit={(e) => {
@@ -67,7 +67,7 @@ const Checkout = () => {
             <h3 className="font-medium  text-amber-500">{user.email}</h3>
 
             <p className="text-slate-200">{contact}</p>
-            <p className="h-auto w-full sm:text-center lg:text-start  overflow-hidden text-slate-200">
+            <p className="max-h-[25%] w-full sm:text-center lg:text-start  overflow-hidden text-slate-200">
               {" "}
               Address: {address}
             </p>
